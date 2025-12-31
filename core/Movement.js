@@ -7,6 +7,7 @@ class Movement {
     this.controls = { forward: 0, sideways: 0 };
     this.breaking = false;
     this.attacking = false;
+    this.version = bot.version;
   }
 
   setControl(action, state) {
@@ -17,7 +18,11 @@ class Movement {
       case 'left': this.controls.sideways = state ? -1 : 0; break;
       case 'right': this.controls.sideways = state ? 1 : 0; break;
       case 'jump':
-        if (state) this.client.write('entity_action', { entityId: this.client.entityId, actionId: 4, jumpBoost: 100 });
+        if (state) {
+          if (this.version >= '1.8') {
+            this.client.write('entity_action', { entityId: this.client.entityId, actionId: 4, jumpBoost: 100 });
+          }
+        }
         break;
       case 'sprint':
         this.client.write('entity_action', { entityId: this.client.entityId, actionId: state ? 3 : 5, jumpBoost: 0 });

@@ -1,21 +1,17 @@
 /**
  * Шаблон бота для версии {{VERSION}}
- * Сгенерирован автоматически ULTRABOT API v3.0
- * Имя бота: {{USERNAME}}
  */
 
-// === МОДУЛИ (раскомментируй нужные) ===
-// const { ChunkNavigator } = require('../core/modules/ChunkNavigator');
-// const { TradeSystem } = require('../core/modules/TradeSystem');
-// const { SurvivalAI } = require('../core/ai_profiles/SurvivalAI');
-
 module.exports = (bot) => {
-  // Пример: включить навигацию
-  // if (!bot.modules) bot.modules = {};
-  // bot.modules.navigator = new ChunkNavigator(bot);
+  console.log(`[ULTRABOT v{{VERSION}}] Бот запущен.`);
 
-  // Пример: включить Survival ИИ
-  // new SurvivalAI(bot).enable();
+  // Пример: бот нашёл алмаз
+  bot.world.onFindOre = (x, y, z) => {
+    bot.swarm.onFindOre(x, y, z);
+  };
 
-  console.log(`[ULTRABOT v{{VERSION}}] Бот {{USERNAME}} готов.`);
+  // Пример: обучение от игрока
+  bot.learner.learnCraftingFromPlayer = (player, recipe) => {
+    console.log(`🤖 Изучаю крафт: ${recipe} от ${player}`);
+  };
 };
