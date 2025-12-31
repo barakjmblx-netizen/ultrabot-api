@@ -1,0 +1,23 @@
+{
+  "name": "ultrabot-api",
+  "version": "3.0.0",
+  "description": "Next-Gen Minecraft Bot Framework — без mineflayer, с полной поддержкой новых версий",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "update-versions": "node tools/update_versions.js"
+  },
+  "keywords": ["minecraft", "bot", "ai", "pathfinding", "offline"],
+  "author": "Хозяин",
+  "license": "MIT",
+  "dependencies": {
+    "minecraft-protocol": "^1.45.0",
+    "minecraft-data": "^3.0.0",
+    "heap": "^0.2.7",
+    "vec3": "^0.1.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
